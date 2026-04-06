@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { BrandMark } from "@/components/site/BrandMark";
 import { ButtonLink } from "@/components/ui/Button";
@@ -42,20 +41,30 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  // Lock body scroll when drawer open (mobile UX; avoids iOS scroll quirks)
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 bg-[--jl-bg]">
       <div
         className={cn(
           "border-b border-transparent transition-all",
           scrolled
-            ? "bg-white/85 backdrop-blur-md border-[--jl-border] shadow-sm"
-            : "bg-transparent",
+            ? "bg-white/95 backdrop-blur-md border-[--jl-border] shadow-sm"
+            : "bg-[--jl-bg]/90 backdrop-blur-sm",
         )}
       >
-        <Container className="flex min-h-[4.25rem] items-center justify-between py-2">
+        <Container className="relative flex min-h-[4.25rem] items-center justify-between py-2">
           <Link
             href="#home"
-            className="group inline-flex items-center gap-3 sm:gap-4"
+            className="group relative z-[1] inline-flex items-center gap-3 sm:gap-4"
             onClick={() => setOpen(false)}
           >
             <BrandMark variant="nav" priority />
@@ -69,7 +78,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -92,72 +101,72 @@ export function Navbar() {
 
           <button
             type="button"
-            aria-label="Open menu"
-            className="inline-flex size-10 items-center justify-center rounded-xl bg-white ring-1 ring-[--jl-border] text-slate-900 transition hover:bg-slate-50 lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open ? "true" : "false"}
+            className="relative z-[60] inline-flex size-11 touch-manipulation items-center justify-center rounded-xl bg-white ring-2 ring-slate-300 text-slate-900 shadow-sm transition hover:bg-slate-50 active:bg-slate-100 lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
-            <span className="block h-0.5 w-5 rounded-full bg-current shadow-[0_6px_0_currentColor,0_-6px_0_currentColor]" />
+            {open ? (
+              <span className="text-xl leading-none font-light" aria-hidden>
+                ×
+              </span>
+            ) : (
+              <span className="block h-0.5 w-5 rounded-full bg-current shadow-[0_6px_0_currentColor,0_-6px_0_currentColor]" />
+            )}
           </button>
         </Container>
       </div>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="lg:hidden"
-          >
-            <div className="border-b border-[--jl-border] bg-white/95 backdrop-blur-md">
-              <Container className="py-4">
-                <div className="mb-4 flex items-center gap-3 border-b border-[--jl-border] pb-4">
-                  <BrandMark variant="drawer" />
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-slate-900">JUSTLIONNE</p>
-                    <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
-                      PTY LTD
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  {nav.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900"
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                  <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <ButtonLink
-                      href="#contact"
-                      variant="quote"
-                      className="w-full"
-                      onClick={() => setOpen(false)}
-                    >
-                      Get a Quote
-                    </ButtonLink>
-                    <ButtonLink
-                      href="#services"
-                      variant="secondary"
-                      className="w-full"
-                      onClick={() => setOpen(false)}
-                    >
-                      Our Services
-                    </ButtonLink>
-                  </div>
-                </div>
-              </Container>
+      {/* No Framer height:auto — iOS Safari often collapses it; plain DOM toggle */}
+      {open ? (
+        <div
+          className="border-b border-[--jl-border] bg-white shadow-md lg:hidden"
+          id="mobile-nav-panel"
+        >
+          <Container className="py-4">
+            <div className="mb-4 flex items-center gap-3 border-b border-[--jl-border] pb-4">
+              <BrandMark variant="drawer" />
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-slate-900">JUSTLIONNE</p>
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
+                  PTY LTD
+                </p>
+              </div>
             </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+            <nav className="flex flex-col gap-1" aria-label="Mobile">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-slate-800 transition hover:bg-slate-100 active:bg-slate-200"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <ButtonLink
+                  href="#contact"
+                  variant="quote"
+                  className="w-full justify-center py-3.5"
+                  onClick={() => setOpen(false)}
+                >
+                  Get a Quote
+                </ButtonLink>
+                <ButtonLink
+                  href="#services"
+                  variant="secondary"
+                  className="w-full justify-center py-3.5"
+                  onClick={() => setOpen(false)}
+                >
+                  Our Services
+                </ButtonLink>
+              </div>
+            </nav>
+          </Container>
+        </div>
+      ) : null}
     </header>
   );
 }
-

@@ -165,8 +165,8 @@ export function Contact() {
                   Phone
                 </p>
                 <p className="mt-2 text-sm text-slate-700">
-                  <a className="hover:text-slate-900" href="tel:+27636560828">
-                    +27 63 656 0828
+                  <a className="hover:text-slate-900" href="tel:+27650743911">
+                    +27 65 074 3911
                   </a>
                   <span className="text-slate-400"> · </span>
                   <a className="hover:text-slate-900" href="tel:+27670594722">

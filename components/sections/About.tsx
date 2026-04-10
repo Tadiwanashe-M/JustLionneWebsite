@@ -52,6 +52,10 @@ export function About() {
                 <p className="mt-2 text-base font-semibold text-white">
                   Built for bulk commodities and tough site conditions
                 </p>
+                <p className="mt-2 text-sm leading-6 text-white/90">
+                  Our trucks are well maintained, customised for long distances, and
+                  equipped with a modern tracking system.
+                </p>
                 <p className="mt-2 text-sm leading-6 text-white/85">
                   Side-tipper and heavy-haul capability aligned to coal, maize, and
                   industrial dry-bulk movements—with the same discipline we apply

@@ -44,9 +44,9 @@ export function Hero() {
 
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-                JUSTLIONNE PTY LTD delivers dependable coal supply, processing,
-                dry bulk handling, and transport services—built for mines,
-                industry, and government procurement standards.
+              JUSTLIONNE PTY LTD delivers efficient logistics and coal supply chain 
+solutions—powered by reliable transport, bulk handling, and processing
+ for mines, industry, and government.
               </p>
             </Reveal>
 

@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      // Browsers request /favicon.ico by default; serve the real logo (no duplicate .ico file).
+      { source: "/favicon.ico", destination: "/images/logo.jpeg" },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_LOGO } from "@/lib/site-images";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +23,10 @@ export const metadata: Metadata = {
   applicationName: "JUSTLIONNE PTY LTD",
   metadataBase: new URL("https://justlionne.co.za"),
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: SITE_LOGO, type: "image/jpeg" }],
+    apple: [{ url: SITE_LOGO, type: "image/jpeg" }],
+  },
   openGraph: {
     title: "JUSTLIONNE PTY LTD | Mining & Logistics",
     description:
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "JUSTLIONNE PTY LTD",
     locale: "en_ZA",
     type: "website",
-    images: [{ url: "/images/logo.jpeg", width: 512, height: 512, alt: "JUSTLIONNE PTY LTD" }],
+    images: [{ url: SITE_LOGO, width: 512, height: 512, alt: "JUSTLIONNE PTY LTD" }],
   },
   keywords: [
     "JUSTLIONNE",

@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://justlionne.co.za"),
   alternates: { canonical: "/" },
   icons: {
-    icon: [{ url: SITE_LOGO, type: "image/jpeg" }],
-    apple: [{ url: SITE_LOGO, type: "image/jpeg" }],
+    icon: [{ url: SITE_LOGO, type: "image/png" }],
+    apple: [{ url: SITE_LOGO, type: "image/png" }],
   },
   openGraph: {
     title: "JUSTLIONNE PTY LTD | Mining & Logistics",

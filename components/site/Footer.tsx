@@ -17,17 +17,7 @@ export function Footer() {
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
-              <BrandMark variant="footer" />
-              <div>
-                <p className="text-base font-semibold tracking-[0.12em] text-slate-900">
-                  JUSTLIONNE
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500">
-                  PTY LTD
-                </p>
-              </div>
-            </div>
+            <BrandMark variant="footer" className="items-start" />
             <p className="mt-5 text-sm leading-6 text-slate-600">
               Mining and logistics partner delivering dependable supply, handling,
               and transport solutions across South Africa.

@@ -24,9 +24,9 @@ export function Hero() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Reveal>
-              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+              <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-start sm:gap-7">
                 <BrandMark variant="hero" />
-                <div className="inline-flex items-center gap-3 rounded-full bg-white/90 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-700 ring-1 ring-[--jl-border] shadow-sm backdrop-blur">
+                <div className="inline-flex items-center gap-3 self-start rounded-full bg-white/90 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-slate-700 ring-1 ring-[--jl-border] shadow-sm backdrop-blur sm:mt-3">
                   <span className="size-1.5 shrink-0 rounded-full bg-[--jl-red]" />
                   Mining & Logistics (South Africa)
                 </div>

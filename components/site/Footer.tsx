@@ -46,7 +46,8 @@ export function Footer() {
               Contact
             </p>
             <div className="mt-4 space-y-2 text-sm text-slate-600">
-              <p>3 Kingsmead St, Reyno Ridge, Emalahleni, 1040</p>
+              <p className="font-medium text-slate-700">Quadrum Office Park</p>
+              <p>50 Constantia Blvd, Constantia Kloof, Roodepoort, 1709</p>
               <p>
                 <a className="hover:text-slate-900" href="mailto:info@justlionne.co.za">
                   info@justlionne.co.za

@@ -11,6 +11,7 @@ const mining: Service[] = [
   { title: "Coal Crushing", description: "Consistent sizing for downstream handling and combustion requirements." },
   { title: "Coal Washing & Screening", description: "Improved quality control through washing and grading." },
   { title: "Coal Supply", description: "Reliable supply aligned to client specifications and lead times." },
+  { title: "Briquettes Supply", description: "Consistent briquette supply for industrial and commercial fuel requirements." },
   { title: "Material Handling", description: "Safe loading, offloading, stockpiling, and movement workflows." },
   { title: "Mining Consultancy", description: "Operational guidance for efficiency, compliance, and delivery planning." },
   { title: "Purchase, Process & Resell", description: "Value-added procurement and processing for optimized pricing." },
@@ -106,7 +107,7 @@ export function Services() {
               </span>
               <div>
                 <p className="text-lg font-semibold text-slate-900">Mining Division</p>
-                <p className="text-sm text-slate-600">Processing, handling, and coal supply</p>
+                <p className="text-sm text-slate-600">Processing, handling, coal and briquettes supply</p>
               </div>
             </div>
           </Reveal>

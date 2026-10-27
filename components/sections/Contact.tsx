@@ -63,11 +63,12 @@ function Field({
 }
 
 export function Contact() {
-  const address = "3 Kingsmead St, Reyno Ridge, Emalahleni, 1040";
+  const officePark = "Quadrum Office Park";
+  const address = "50 Constantia Blvd, Constantia Kloof, Roodepoort, 1709";
   const mapHref = useMemo(() => {
-    const q = encodeURIComponent(address);
+    const q = encodeURIComponent(`${officePark}, ${address}`);
     return `https://www.google.com/maps/search/?api=1&query=${q}`;
-  }, [address]);
+  }, [officePark, address]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -116,7 +117,7 @@ export function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Request a quote or start a conversation"
-          description="Tell us what you need—coal supply, processing, dry bulk handling, storage, or transport—and we’ll respond with clear next steps."
+          description="Tell us what you need—coal and briquettes supply, processing, dry bulk handling, storage, or transport—and we’ll respond with clear next steps."
         />
       </Reveal>
 
@@ -132,7 +133,10 @@ export function Contact() {
                 <p className="mt-2 text-sm font-medium text-slate-900">JUSTLIONNE PTY LTD</p>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-6 text-slate-700">{address}</p>
+            <div className="mt-4 space-y-1 text-sm leading-6 text-slate-700">
+              <p className="font-medium text-slate-900">{officePark}</p>
+              <p>{address}</p>
+            </div>
             <a
               className="mt-3 inline-block text-sm font-semibold text-[--jl-red] hover:text-[--jl-red-2]"
               href={mapHref}

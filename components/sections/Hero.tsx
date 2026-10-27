@@ -94,8 +94,8 @@ solutions—powered by reliable transport, bulk handling, and processing
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     {[
                       {
-                        t: "Coal supply & processing",
-                        d: "Crushing, washing, screening, and quality control.",
+                        t: "Coal & briquettes supply",
+                        d: "Crushing, washing, screening, and quality-controlled supply.",
                       },
                       {
                         t: "Dry bulk handling",

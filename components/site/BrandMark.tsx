@@ -80,8 +80,8 @@ function BrandCaption({
           onDark ? "text-white/92" : "text-slate-900",
         )}
       >
-        Roaring with Quality,{" "}
-        <span className="text-[--jl-red]">Delivering</span> with Pride
+        Powering Industry,{" "}
+        <span className="text-[--jl-red]">Moving</span> Progress
       </span>
     </span>
   );

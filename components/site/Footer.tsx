@@ -65,8 +65,8 @@ export function Footer() {
                   +27 65 074 3911
                 </a>
                 <span className="text-slate-400"> · </span>
-                <a className="hover:text-slate-900" href="tel:+27670594722">
-                  +27 67 059 4722
+                <a className="hover:text-slate-900" href="tel:+27101411292">
+                  010 141 1292
                 </a>
               </p>
               <p className="pt-2 text-xs text-slate-400">

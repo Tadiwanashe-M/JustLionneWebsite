@@ -35,9 +35,9 @@ export function Hero() {
 
             <Reveal delay={0.05}>
               <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                Roaring with Quality.
+                Powering Industry.
                 <span className="block text-[--jl-red]">
-                  Delivering with Pride.
+                  Moving Progress.
                 </span>
               </h1>
             </Reveal>

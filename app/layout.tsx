@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JUSTLIONNE PTY LTD | Mining & Logistics",
     description:
-      "Roaring with Quality. Delivering with Pride. Coal supply, processing, dry bulk handling, storage, and transport.",
+      "Powering Industry. Moving Progress. Coal and briquettes supply, processing, dry bulk handling, storage, and transport.",
     url: "https://justlionne.co.za",
     siteName: "JUSTLIONNE PTY LTD",
     locale: "en_ZA",
